@@ -1,4 +1,8 @@
-const { resultByDivision, resultByOccurence, fooBarQix } = require('../fooBarQix');
+import { 
+	resultByDivision,
+	resultByOccurence,
+	fooBarQix 
+} from './fooBarQix';
 
 
 describe('resultByDivision', () => {

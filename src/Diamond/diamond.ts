@@ -61,11 +61,11 @@ function getLetterPositionInAlphabet(letter) {
 }
 
 function getSpaces(spaceNumber) {
-    const space = ' ';
+    const space: string = ' ';
     return space.repeat(spaceNumber);
 }
 
-module.exports = {
+export {
     createDiamond,
     getLetterPositionInAlphabet,
     createDiamondHeadPart,

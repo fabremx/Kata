@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "lib": ["es2015", "es2019.string"]
+  },
+  "include": ["src/**/*.ts"]
+}

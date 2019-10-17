@@ -1,11 +1,11 @@
-const { 
+import { 
     createDiamond,
     getLetterPositionInAlphabet,
     getSpaces,
     createDiamondHeadPart,
     createPerimeterLine,
     reverseDiamondPart
-} = require('./diamond');
+} from './diamond';
 
 describe('createDiamond', () => {
     it('should return A diamond when letter is A', () => {

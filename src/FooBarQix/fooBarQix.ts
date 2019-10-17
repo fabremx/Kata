@@ -3,10 +3,10 @@ const dividedBy5 = 'Bar';
 const dividedBy7 = 'Qix';
 
 function resultByOccurence(number) {
-    const numberArray = Array.from(number.toString()).map(Number);
+    const numberArray = number.toString().split('').map(Number);
     let result = '';
 
-    for (i = 0; i < numberArray.length; i++) {
+    for (let i = 0; i < numberArray.length; i++) {
         if (numberArray[i] === 3) {
             result += dividedBy3;
         }
@@ -51,12 +51,6 @@ function resultByDivision(number) {
     }
 }
 
-module.exports = {
-    resultByDivision,
-    fooBarQix,
-    resultByOccurence
-}
-
 function isDivisibleBy7(number) {
     return number % 7 === 0;
 }
@@ -67,4 +61,10 @@ function isDivisibleBy3(number) {
 
 function isDivisibleBy5(number) {
     return number % 5 === 0;
+}
+
+export {
+    resultByDivision,
+    fooBarQix,
+    resultByOccurence
 }

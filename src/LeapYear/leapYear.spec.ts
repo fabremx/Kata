@@ -1,4 +1,4 @@
-const { isLeapYear } = require('../leapYears');
+import { isLeapYear } from './leapYear';
 
 it('should return false when year equal to 2001', () => {
     // Given
