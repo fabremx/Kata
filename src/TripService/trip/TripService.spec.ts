@@ -1,6 +1,7 @@
 import TripService from './TripService';
 import UserSession from '../user/UserSession';
 import User from '../user/User';
+import UserBuilder from '../user/UserBuilder';
 import Trip from './Trip';
 import UserNotLoggedInException from '../exception/UserNotLoggedInException';
 import TripDAO from './TripDAO';
@@ -15,9 +16,14 @@ describe('TripService - getTripsByUser', () => {
     const TO_BRAZIL = new Trip();
     const TO_LONDON =  new Trip();
 
+    let tripService = new TripService();
+
+    beforeEach(() => {
+        UserSession.getLoggedUser = jest.fn().mockReturnValue(LOGGED_IN_USER);
+    })
+
     it('should throw exception when user is not logged', () => {
         // Given
-        const tripService = new TripService();
         UserSession.getLoggedUser = jest.fn().mockReturnValue(NOT_LOGGED_USER);
        
         // When
@@ -33,12 +39,10 @@ describe('TripService - getTripsByUser', () => {
 
     it('should return any trips when users are not friends', () => {
         // Given
-        const tripService = new TripService();
-        UserSession.getLoggedUser = jest.fn().mockReturnValue(LOGGED_IN_USER);
-        
-        const friend: User = new User();
-        friend.addFriend(ANOTHER_USER);
-        friend.addTrip(TO_BRAZIL);
+        const friend = UserBuilder.aUser()
+                            .friendsWith(ANOTHER_USER)
+                            .withTrips(TO_BRAZIL)
+                            .build();
 
         // When
         const friendTrips: Trip[]  = tripService.getTripsByUser(friend)
@@ -49,14 +53,11 @@ describe('TripService - getTripsByUser', () => {
 
     it('should return friend trips when users are friends', () => {
         // Given
-        const tripService = new TripService();
-        const friend: User = new User();
-        friend.addFriend(ANOTHER_USER);
-        friend.addFriend(LOGGED_IN_USER);
-        friend.addTrip(TO_BRAZIL);
-        friend.addTrip(TO_LONDON);
+        const friend = UserBuilder.aUser()
+                            .friendsWith(ANOTHER_USER, LOGGED_IN_USER)
+                            .withTrips(TO_BRAZIL, TO_LONDON)
+                            .build();
 
-        UserSession.getLoggedUser = jest.fn().mockReturnValue(LOGGED_IN_USER);
         TripDAO.findTripsByUser = jest.fn().mockReturnValue(friend.getTrips());
 
         // When
