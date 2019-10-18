@@ -19,12 +19,16 @@ export default class TripService {
             }
 
             if (isFriend) {
-                tripList = TripDAO.findTripsByUser(user);
+                tripList = this.getTripsBy(user);
             }
 
             return tripList;
         } else {
             throw new UserNotLoggedInException();
         }
+    }
+
+    private getTripsBy(user: User): Trip[] {
+        return TripDAO.findTripsByUser(user);
     }
 }
