@@ -4,6 +4,8 @@ import Trip from "./Trip";
 import TripDAO from "./TripDAO";
 
 export default class TripService {
+    private tripDAO = new TripDAO();
+
     public getTripsByUser(friend: User, loggedInUser: User): Trip[] {
         this.validate(loggedInUser);
 
@@ -23,6 +25,6 @@ export default class TripService {
     }
 
     private getTripsBy(user: User): Trip[] {
-        return TripDAO.findTripsByUser(user);
+        return this.tripDAO.getTripsBy(user);
     }
 }

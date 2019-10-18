@@ -7,4 +7,8 @@ export default class TripDAO {
         throw new CollaboratorCallException(
             "TripDAO should not be invoked on an unit test.");
     }
+
+    public getTripsBy(user: User): Trip[] {
+        return TripDAO.findTripsByUser(user);
+    }
 }
