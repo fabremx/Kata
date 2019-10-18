@@ -1,5 +1,4 @@
 import TripService from './TripService';
-import UserSession from '../user/UserSession';
 import User from '../user/User';
 import UserBuilder from '../user/UserBuilder';
 import Trip from './Trip';
@@ -18,17 +17,10 @@ describe('TripService - getTripsByUser', () => {
 
     let tripService = new TripService();
 
-    beforeEach(() => {
-        UserSession.getLoggedUser = jest.fn().mockReturnValue(LOGGED_IN_USER);
-    })
-
-    it('should throw exception when user is not logged', () => {
-        // Given
-        UserSession.getLoggedUser = jest.fn().mockReturnValue(NOT_LOGGED_USER);
-       
+    it('should throw exception when user is not logged', () => {       
         // When
         try {
-            tripService.getTripsByUser(UNUSED_USER);
+            tripService.getTripsByUser(UNUSED_USER, NOT_LOGGED_USER);
         }
         catch (error) {
             // Then
@@ -45,7 +37,7 @@ describe('TripService - getTripsByUser', () => {
                             .build();
 
         // When
-        const friendTrips: Trip[]  = tripService.getTripsByUser(friend)
+        const friendTrips: Trip[]  = tripService.getTripsByUser(friend, LOGGED_IN_USER)
 
         // Then
         expect(friendTrips).toEqual([]);
@@ -61,7 +53,7 @@ describe('TripService - getTripsByUser', () => {
         TripDAO.findTripsByUser = jest.fn().mockReturnValue(friend.getTrips());
 
         // When
-        const friendTrips: Trip[]  = tripService.getTripsByUser(friend)
+        const friendTrips: Trip[]  = tripService.getTripsByUser(friend, LOGGED_IN_USER)
 
         // Then
         const expectedFriendTrips = friend.getTrips();
