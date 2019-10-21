@@ -1,10 +1,25 @@
-export function isLeapYear(year) {
-    return (
-        (isDivisibleBy(year, 4) && !isDivisibleBy(year, 100)) || 
-        isDivisibleBy(year, 400)
-    );
-}
+export default class LeapYear {
+    public isLeapYear(year: number): boolean {
+        return this.isTypicalLeapYear(year) || this.isAtypicalLeapYear(year);
+    }
 
-function isDivisibleBy(year, number) {
-    return year % number === 0;
+    private isTypicalLeapYear(year: number): boolean {
+        return this.isDivisibleBy4(year) && !this.isDivisibleBy100(year);
+    }
+
+    private isAtypicalLeapYear(year: number): boolean {
+        return this.isDivisibleBy400(year);
+    }
+
+    private isDivisibleBy4(year: number): boolean {
+        return year % 4 === 0;
+    }
+
+    private isDivisibleBy100(year: number): boolean {
+        return year % 100 === 0;
+    }
+
+    private isDivisibleBy400(year: number): boolean {
+        return year % 400 === 0;
+    }
 }
