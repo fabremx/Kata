@@ -10,7 +10,7 @@ describe('getTripsBy', () => {
 
         // When
         try {
-            const trips = tripDAO.getTripsBy(user);
+            tripDAO.getTripsBy(user);
         } catch (error) {
             // Then
             const expectedError = new CollaboratorCallException("TripDAO should not be invoked on an unit test.");
