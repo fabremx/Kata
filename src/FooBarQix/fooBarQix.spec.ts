@@ -3,27 +3,27 @@ import FooBarQix from './fooBarQix';
 describe('FooBarQix', () => {
 	const fooBarQix = new FooBarQix();
 
-	describe('resultByDivision', () => {
-		it('should return 1 when number equal to 1', () => {
+	describe('resultByModulo', () => {
+		it('should return empty string when number equal to 1', () => {
 			// Given
 			const number = 1;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
-			expect(result).toBe(1)
+			expect(result).toBe("")
 		});
 		
-		it('should return 2 when number equal to 2', () => {
+		it('should return empty string when number equal to 2', () => {
 			// Given
 			const number = 2;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
-			expect(result).toBe(2)
+			expect(result).toBe("")
 		});
 		
 		it('should return Foo when number equal to 3', () => {
@@ -31,7 +31,7 @@ describe('FooBarQix', () => {
 			const number = 3;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('Foo')
@@ -42,7 +42,7 @@ describe('FooBarQix', () => {
 			const number = 6;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('Foo')
@@ -53,7 +53,7 @@ describe('FooBarQix', () => {
 			const number = 5;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('Bar')
@@ -64,7 +64,7 @@ describe('FooBarQix', () => {
 			const number = 10;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('Bar')
@@ -75,7 +75,7 @@ describe('FooBarQix', () => {
 			const number = 7;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('Qix')
@@ -86,7 +86,7 @@ describe('FooBarQix', () => {
 			const number = 14;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('Qix')
@@ -97,7 +97,7 @@ describe('FooBarQix', () => {
 			const number = 15;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('FooBar')
@@ -108,7 +108,7 @@ describe('FooBarQix', () => {
 			const number = 30;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('FooBar')
@@ -119,7 +119,7 @@ describe('FooBarQix', () => {
 			const number = 21;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('FooQix')
@@ -130,7 +130,7 @@ describe('FooBarQix', () => {
 			const number = 105;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('FooBarQix')
@@ -141,7 +141,7 @@ describe('FooBarQix', () => {
 			const number = 35;
 		
 			// When
-			const result = fooBarQix.resultByDivision(number);
+			const result = fooBarQix.resultByModulo(number);
 		
 			//Then
 			expect(result).toBe('BarQix')
@@ -259,6 +259,39 @@ describe('FooBarQix', () => {
 
 			// Then
 			expect(result).toBe('FooFoo');
+		});
+
+		it('should return 2 when number equal to 2', () => {
+			// Given
+			const number = 2;
+
+			// When
+			const result = fooBarQix.fooBarQix(number);
+
+			// Then
+			expect(result).toBe(2);
+		});
+
+		it('should return FooBarBar when number equal to 15', () => {
+			// Given
+			const number = 15;
+
+			// When
+			const result = fooBarQix.fooBarQix(number);
+
+			// Then
+			expect(result).toBe("FooBarBar");
+		});
+
+		it('should return FooFooFoo when number equal to 33', () => {
+			// Given
+			const number = 33;
+
+			// When
+			const result = fooBarQix.fooBarQix(number);
+
+			// Then
+			expect(result).toBe("FooFooFoo");
 		});
 	});
 });
