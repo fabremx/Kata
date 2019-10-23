@@ -6,7 +6,7 @@ describe('FooBarQix', () => {
 	describe('resultByModulo', () => {
 		it('should return empty string when number equal to 1', () => {
 			// Given
-			const number = 1;
+			const number = '1';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -17,7 +17,7 @@ describe('FooBarQix', () => {
 		
 		it('should return empty string when number equal to 2', () => {
 			// Given
-			const number = 2;
+			const number = '2';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -28,7 +28,7 @@ describe('FooBarQix', () => {
 		
 		it('should return Foo when number equal to 3', () => {
 			// Given
-			const number = 3;
+			const number = '3';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -39,7 +39,7 @@ describe('FooBarQix', () => {
 		
 		it('should return Foo when number equal to 6', () => {
 			// Given
-			const number = 6;
+			const number = '6';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -50,7 +50,7 @@ describe('FooBarQix', () => {
 		
 		it('should return Bar when number equal to 5', () => {
 			// Given
-			const number = 5;
+			const number = '5';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -61,7 +61,7 @@ describe('FooBarQix', () => {
 		
 		it('should return Bar when number equal to 10', () => {
 			// Given
-			const number = 10;
+			const number = '10';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -72,7 +72,7 @@ describe('FooBarQix', () => {
 		
 		it('should return Qix when number equal to 7', () => {
 			// Given
-			const number = 7;
+			const number = '7';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -83,7 +83,7 @@ describe('FooBarQix', () => {
 		
 		it('should return Qix when number equal to 14', () => {
 			// Given
-			const number = 14;
+			const number = '14';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -94,7 +94,7 @@ describe('FooBarQix', () => {
 		
 		it('should return fooBarQix when number equal to 15', () => {
 			// Given
-			const number = 15;
+			const number = '15';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -105,7 +105,7 @@ describe('FooBarQix', () => {
 		
 		it('should return fooBarQix when number equal to 30', () => {
 			// Given
-			const number = 30;
+			const number = '30';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -116,7 +116,7 @@ describe('FooBarQix', () => {
 		
 		it('should return fooQix when number equal to 21', () => {
 			// Given
-			const number = 21;
+			const number = '21';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -127,7 +127,7 @@ describe('FooBarQix', () => {
 		
 		it('should return fooBarQix when number equal to 105', () => {
 			// Given
-			const number = 105;
+			const number = '105';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -138,7 +138,7 @@ describe('FooBarQix', () => {
 		
 		it('should return BarQix when number equal to 35', () => {
 			// Given
-			const number = 35;
+			const number = '35';
 		
 			// When
 			const result = fooBarQix.resultByModulo(number);
@@ -151,7 +151,7 @@ describe('FooBarQix', () => {
 	describe('resultByOccurence', () => {
 		it('should return Foo when number equal to 3', () => {
 			// Given
-			const number  = 3;
+			const number  = '3';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -162,7 +162,7 @@ describe('FooBarQix', () => {
 
 		it('should return Foo when number equal to 13', () => {
 			// Given
-			const number  = 13;
+			const number  = '13';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -173,7 +173,7 @@ describe('FooBarQix', () => {
 
 		it('should return Foo when number equal to 33', () => {
 			// Given
-			const number  = 33;
+			const number  = '33';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -184,7 +184,7 @@ describe('FooBarQix', () => {
 
 		it('should return Bar when number equal to 15', () => {
 			// Given
-			const number  = 15;
+			const number  = '15';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -195,7 +195,7 @@ describe('FooBarQix', () => {
 
 		it('should return Bar when number equal to 155', () => {
 			// Given
-			const number  = 155;
+			const number  = '155';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -206,7 +206,7 @@ describe('FooBarQix', () => {
 
 		it('should return FooBar when number equal to 35', () => {
 			// Given
-			const number  = 35;
+			const number  = '35';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -217,7 +217,7 @@ describe('FooBarQix', () => {
 
 		it('should return BarFoo when number equal to 53', () => {
 			// Given
-			const number  = 53;
+			const number  = '53';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -228,7 +228,7 @@ describe('FooBarQix', () => {
 
 		it('should return Qix when number equal to 17', () => {
 			// Given
-			const number  = 17;
+			const number  = '17';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -239,7 +239,7 @@ describe('FooBarQix', () => {
 
 		it('should return QixFooBar when number equal to 172365', () => {
 			// Given
-			const number  = 172365;
+			const number  = '172365';
 
 			// When
 			const result = fooBarQix.resultByOccurence(number);
@@ -249,10 +249,34 @@ describe('FooBarQix', () => {
 		});
 	});
 
+	describe('replaceZerosFrom', () => {
+		it('should return * when number equal to 0', () => {
+			// Given
+			const number = '0';
+
+			// When
+			const result = fooBarQix.replaceZerosByStarFrom(number);
+
+			// Then
+			expect(result).toBe('*');
+		});
+
+		it('should return 1*1 when number equal to 101', () => {
+			// Given
+			const number = '101';
+
+			// When
+			const result = fooBarQix.replaceZerosByStarFrom(number);
+
+			// Then
+			expect(result).toBe('*');
+		});
+	})
+
 	describe('fooBarQix', () => {
 		it('should return FooFoo when number equal to 3', () => {
 			// Given
-			const number = 3;
+			const number = '3';
 
 			// When
 			const result = fooBarQix.fooBarQix(number);
@@ -263,18 +287,18 @@ describe('FooBarQix', () => {
 
 		it('should return 2 when number equal to 2', () => {
 			// Given
-			const number = 2;
+			const number = '2';
 
 			// When
 			const result = fooBarQix.fooBarQix(number);
 
 			// Then
-			expect(result).toBe(2);
+			expect(result).toBe('2');
 		});
 
 		it('should return FooBarBar when number equal to 15', () => {
 			// Given
-			const number = 15;
+			const number = '15';
 
 			// When
 			const result = fooBarQix.fooBarQix(number);
@@ -285,13 +309,46 @@ describe('FooBarQix', () => {
 
 		it('should return FooFooFoo when number equal to 33', () => {
 			// Given
-			const number = 33;
+			const number = '33';
 
 			// When
 			const result = fooBarQix.fooBarQix(number);
 
 			// Then
 			expect(result).toBe("FooFooFoo");
+		});
+
+		it('should return 1*1 when number equal to 101', () => {
+			// Given
+			const number = '101';
+
+			// When
+			const result = fooBarQix.fooBarQix(number);
+
+			// Then
+			expect(result).toBe('1*1');
+		});
+
+		it('should return FooBarQix*Bar when number equal to 105', () => {
+			// Given
+			const number = '105';
+
+			// When
+			const result = fooBarQix.fooBarQix(number);
+
+			// Then
+			expect(result).toBe("FooBarQix*Bar");
+		});
+
+		it('should return FooQix** when number equal to 10101', () => {
+			// Given
+			const number = '10101';
+
+			// When
+			const result = fooBarQix.fooBarQix(number);
+
+			// Then
+			expect(result).toBe("FooQix**");
 		});
 	});
 });

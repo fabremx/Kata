@@ -1,34 +1,45 @@
 export default class FooBarQix {
-    mapping = {
-        3: "Foo",
-        5: "Bar",
-        7: "Qix",
+    mapping: object = {
+        '3': 'Foo',
+        '5': 'Bar',
+        '7': 'Qix',
+    };
+    regex: RegExp = /0/gi;
+
+    public fooBarQix(number: string): string {
+        const resultByModulo: string = this.resultByModulo(number);
+        const numberWithZerosCensored: string = this.replaceZerosByStarFrom(number);
+        const resultByOccurence: string = this.resultByOccurence(number);
+
+        return resultByModulo.length || resultByOccurence.length
+            ? resultByModulo + numberWithZerosCensored + resultByOccurence
+            : number.replace(this.regex, '*');
     }
 
-    public fooBarQix(number: number): string | number {
-        const stringResult: string = this.resultByModulo(number) + this.resultByOccurence(number);
-        return stringResult.length ? stringResult : number;
-    }
-
-    public resultByModulo(number: number): string {
+    public resultByModulo(number: string): string {
         const dividers: string[] = Object.keys(this.mapping);
-
         const stringResult: string[] = dividers.map((divider) => {
-            return number % parseInt(divider) === 0 
+            return parseInt(number) % parseInt(divider) === 0 
                 ? this.mapping[divider]
                 : ''
         });
+        
         return stringResult.join("");
     }
 
-    public resultByOccurence(number: number): string {
-        return this.splitDigitFrom(number)
+    public replaceZerosByStarFrom(number: string): string {
+        return number
+                .split('')
+                .filter((digit) => (digit === '0'))
+                .join('')
+                .replace(this.regex, '*');
+    }
+
+    public resultByOccurence(number: string): string {
+        return number
+                .split('')
                 .filter((digit) => this.mapping.hasOwnProperty(digit))
                 .map((digit) => this.mapping[digit])
                 .join('');
-    }
-
-    private splitDigitFrom(number: number): number[] {
-        return number.toString().split('').map(Number);
     }
 }
