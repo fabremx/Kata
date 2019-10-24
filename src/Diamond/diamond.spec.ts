@@ -1,11 +1,6 @@
-import { 
-    createDiamond,
-    getLetterPositionInAlphabet,
-    getSpaces,
-    createDiamondHeadPart,
-    createPerimeterLine,
-    reverseDiamondPart
-} from './diamond';
+import Diamond from './diamond';
+
+const diamond = new Diamond();
 
 describe('createDiamond', () => {
     it('should return A diamond when letter is A', () => {
@@ -13,7 +8,7 @@ describe('createDiamond', () => {
         const letter = 'A';
     
         // When
-        const result = createDiamond(letter);
+        const result = diamond.createDiamond(letter);
     
         // Then
         const expectedResult = 'A';
@@ -25,7 +20,7 @@ describe('createDiamond', () => {
         const letter = 'B';
     
         // When
-        const result = createDiamond(letter);
+        const result = diamond.createDiamond(letter);
     
         // Then
         const expectedResult = 
@@ -40,7 +35,7 @@ B B
         const letter = 'C';
     
         // When
-        const result = createDiamond(letter);
+        const result = diamond.createDiamond(letter);
     
         // Then
         const expectedResult = 
@@ -57,7 +52,7 @@ C   C
         const letter = 'E';
     
         // When
-        const result = createDiamond(letter);
+        const result = diamond.createDiamond(letter);
     
         // Then
         const expectedResult = 
@@ -80,7 +75,7 @@ describe('getLetterPositionInAlphabet', () => {
         const letter = 'A';
 
         // When
-        const result = getLetterPositionInAlphabet(letter);
+        const result = diamond.getLetterPositionInAlphabet(letter);
 
         // Then
         expect(result).toBe(0);
@@ -91,7 +86,7 @@ describe('getLetterPositionInAlphabet', () => {
         const letter = 'B';
 
         // When
-        const result = getLetterPositionInAlphabet(letter);
+        const result = diamond.getLetterPositionInAlphabet(letter);
 
         // Then
         expect(result).toBe(1);
@@ -104,7 +99,7 @@ describe('createDiamondHeadPart', () => {
         const letter = 'B';
 
         // When
-        const result = createDiamondHeadPart(letter);
+        const result = diamond.createDiamondHeadPart(letter);
 
         // Then
         const expectedResult = ` A `;
@@ -116,7 +111,7 @@ describe('createDiamondHeadPart', () => {
         const letter = 'C';
 
         // When
-        const result = createDiamondHeadPart(letter);
+        const result = diamond.createDiamondHeadPart(letter);
 
         // Then
         const expectedResult = `  A  
@@ -131,7 +126,7 @@ describe('createPerimeterLine', () => {
         const letter = 'B';
 
         // When
-        const result = createPerimeterLine(letter);
+        const result = diamond.createPerimeterLine(letter);
 
         // Then
         const expectedResult = `B B`;
@@ -143,7 +138,7 @@ describe('createPerimeterLine', () => {
         const letter = 'C';
 
         // When
-        const result = createPerimeterLine(letter);
+        const result = diamond.createPerimeterLine(letter);
 
         // Then
         const expectedResult = `C   C`;
@@ -155,7 +150,7 @@ describe('createPerimeterLine', () => {
         const letter = 'D';
 
         // When
-        const result = createPerimeterLine(letter);
+        const result = diamond.createPerimeterLine(letter);
 
         // Then
         const expectedResult = `D     D`;
@@ -169,7 +164,7 @@ describe('reverseDiamondPart', () => {
         const diamondPart = ' A ';
 
         // When
-        const result = reverseDiamondPart(diamondPart);
+        const result = diamond.reverseDiamondPart(diamondPart);
 
         // Then
         const expectedResult = ' A ';
@@ -182,7 +177,7 @@ describe('reverseDiamondPart', () => {
  B B `;
 
         // When
-        const result = reverseDiamondPart(diamondPart);
+        const result = diamond.reverseDiamondPart(diamondPart);
 
         // Then
         const expectedResult = ` B B 
@@ -191,13 +186,13 @@ describe('reverseDiamondPart', () => {
     })
 })
 
-describe('getSpaceString', () => {
+describe('getSpace', () => {
     it('should return 2 spaces lines when number of spaces is 2', () => {
         // Given
         const spaceNumber = 2;
 
         // When
-        const result = getSpaces(spaceNumber);
+        const result = diamond.getSpaces(spaceNumber);
 
         // Then
         const expectedResult = '  ';
