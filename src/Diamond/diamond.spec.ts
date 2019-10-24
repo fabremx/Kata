@@ -2,25 +2,25 @@ import Diamond from './diamond';
 
 const diamond = new Diamond();
 
-describe('createDiamond', () => {
+describe('displayDiamond', () => {
     it('should return A diamond when letter is A', () => {
         // Given
         const letter = 'A';
     
         // When
-        const result = diamond.createDiamond(letter);
+        const result = diamond.displayDiamond(letter);
     
         // Then
         const expectedResult = 'A';
         expect(result).toMatch(expectedResult);
-    })
+    });
     
     it('should return diamond with 3 lines diamond when letter is B', () => {
         // Given
         const letter = 'B';
     
         // When
-        const result = diamond.createDiamond(letter);
+        const result = diamond.displayDiamond(letter);
     
         // Then
         const expectedResult = 
@@ -28,14 +28,14 @@ describe('createDiamond', () => {
 B B
  A `;
         expect(result).toMatch(expectedResult);
-    })
+    });
     
     it('should return diamond with 5 lines diamond when letter is C', () => {
         // Given
         const letter = 'C';
     
         // When
-        const result = diamond.createDiamond(letter);
+        const result = diamond.displayDiamond(letter);
     
         // Then
         const expectedResult = 
@@ -45,14 +45,14 @@ C   C
  B B 
   A  `;
         expect(result).toMatch(expectedResult);
-    })
+    });
 
     it('should return diamond with 9 lines diamond when letter is E', () => {
         // Given
         const letter = 'E';
     
         // When
-        const result = diamond.createDiamond(letter);
+        const result = diamond.displayDiamond(letter);
     
         // Then
         const expectedResult = 
@@ -66,137 +66,84 @@ E       E
    B B   
     A    `;
         expect(result).toMatch(expectedResult);
-    })
-})
+    });
+});
 
-describe('getLetterPositionInAlphabet', () => {
-    it('should return 1 when letter is A', () => {
-        // Given
-        const letter = 'A';
-
-        // When
-        const result = diamond.getLetterPositionInAlphabet(letter);
-
-        // Then
-        expect(result).toBe(0);
-    })
-
-    it('should return 2 when letter is B', () => {
+describe('createQuarterDiamond', () => {
+    it('should return quarter of three lines diamond when letter equal to B', () => {
         // Given
         const letter = 'B';
 
         // When
-        const result = diamond.getLetterPositionInAlphabet(letter);
+        const quarter = diamond.createQuarterDiamond(letter);
 
         // Then
-        expect(result).toBe(1);
-    })
-})
+        const expectedResult = [' A', 'B '];
+        expect(quarter).toEqual(expectedResult);
+    });
 
-describe('createDiamondHeadPart', () => {
-    it('should return 2 lines with correct spaces when letter is B', () => {
-        // Given
-        const letter = 'B';
-
-        // When
-        const result = diamond.createDiamondHeadPart(letter);
-
-        // Then
-        const expectedResult = ` A `;
-        expect(result).toMatch(expectedResult);
-    })
-
-    it('should return 3 lines with correct spaces when letter is C', () => {
-        // Given
-        const letter = 'C';
-
-        // When
-        const result = diamond.createDiamondHeadPart(letter);
-
-        // Then
-        const expectedResult = `  A  
- B B `;
-        expect(result).toMatch(expectedResult);
-    })
-})
-
-describe('createPerimeterLine', () => {
-    it('should return perimeter line with correct spaces when letter is B', () => {
-        // Given
-        const letter = 'B';
-
-        // When
-        const result = diamond.createPerimeterLine(letter);
-
-        // Then
-        const expectedResult = `B B`;
-        expect(result).toMatch(expectedResult);
-    })
-
-    it('should return perimeter line with correct spaces when letter is C', () => {
-        // Given
-        const letter = 'C';
-
-        // When
-        const result = diamond.createPerimeterLine(letter);
-
-        // Then
-        const expectedResult = `C   C`;
-        expect(result).toMatch(expectedResult);
-    })
-
-    it('should return perimeter line with correct spaces when letter is D', () => {
+    it('should return quarter of seven lines diamond when letter equal to D', () => {
         // Given
         const letter = 'D';
 
         // When
-        const result = diamond.createPerimeterLine(letter);
+        const quarter = diamond.createQuarterDiamond(letter);
 
         // Then
-        const expectedResult = `D     D`;
-        expect(result).toMatch(expectedResult);
-    })
-})
+        const expectedResult = ['   A', '  B ', ' C  ', 'D   '];
+        expect(quarter).toEqual(expectedResult);
+    });
+});
 
-describe('reverseDiamondPart', () => {
-    it('should return 1 lines whith A and a space between when letter is B', () => {
+describe('createHalfDiamond', () => {
+    it('should return half of three lines diamond when letter equal to B', () => {
         // Given
-        const diamondPart = ' A ';
+        const quarter = [' A', 'B '];
 
         // When
-        const result = diamond.reverseDiamondPart(diamondPart);
+        const half = diamond.createHalfDiamond(quarter);
 
         // Then
-        const expectedResult = ' A ';
-        expect(result).toMatch(expectedResult);
-    })
+        const expectedResult = [' A ', 'B B'];
+        expect(half).toEqual(expectedResult);
+    });
 
-    it('should return 2 lines whith correct spaces between when letter is C', () => {
+    it('should return half of seven lines diamond when letter equal to D', () => {
         // Given
-        const diamondPart = `  A  
- B B `;
+        const quarter = ['   A', '  B ', ' C  ', 'D   '];
 
         // When
-        const result = diamond.reverseDiamondPart(diamondPart);
+        const half = diamond.createHalfDiamond(quarter);
 
         // Then
-        const expectedResult = ` B B 
-  A  `;
-        expect(result).toMatch(expectedResult);
-    })
-})
+        const expectedResult = ['   A   ', '  B B  ', ' C   C ', 'D     D'];
+        expect(half).toEqual(expectedResult);
+    });
+});
 
-describe('getSpace', () => {
-    it('should return 2 spaces lines when number of spaces is 2', () => {
+describe('createFullDiamond', () => {
+    it('should return full three lines diamond when letter equal to B', () => {
         // Given
-        const spaceNumber = 2;
+        const half = [' A ', 'B B'];
 
         // When
-        const result = diamond.getSpaces(spaceNumber);
+        const full = diamond.createFullDiamond(half);
 
         // Then
-        const expectedResult = '  ';
-        expect(result).toBe(expectedResult);
-    })
-})
+        const expectedResult = [' A ', 'B B', ' A '];
+        expect(full).toEqual(expectedResult);
+    });
+
+    it('should return full seven lines diamond when letter equal to D', () => {
+        // Given
+        const half = ['   A   ', '  B B  ', ' C   C ', 'D     D'];
+
+        // When
+        const full = diamond.createFullDiamond(half);
+
+        // Then
+        const expectedResult = ['   A   ', '  B B  ', ' C   C ', 'D     D', ' C   C ', '  B B  ', '   A   '];
+        expect(full).toEqual(expectedResult);
+    });
+});
 

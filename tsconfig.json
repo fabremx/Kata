@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "lib": ["es2015", "es2019.string", "dom"]
+    "lib": ["es2015", "es2019.string", "dom"],
+    "downlevelIteration": true
   },
   "include": ["src/**/*.ts"]
 }

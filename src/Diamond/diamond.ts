@@ -1,68 +1,42 @@
 export default class Diamond {
-    ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    public createDiamond(letter: string): string {
+    public displayDiamond(letter: string): string {
         if (letter === 'A') {
             return 'A';
         }
+
+        const quarterDiamond: string[] = this.createQuarterDiamond(letter);
+        const halfDiamond: string[] = this.createHalfDiamond(quarterDiamond);
+        const fullDiamond: string[] = this.createFullDiamond(halfDiamond);
     
-        const headDiamond = this.createDiamondHeadPart(letter);
-        const perimeterLine = this.createPerimeterLine(letter);
-        const footerDiamond = this.reverseDiamondPart(headDiamond);
-    
-        return headDiamond + '\n' + perimeterLine + '\n' + footerDiamond;
+        return fullDiamond.join('\n');
     }
 
-    public createDiamondHeadPart(letter: string): string {
-        const linesNumberBeforePerimeterLine = this.getLetterPositionInAlphabet(letter) ;
-        let spaceAroundLetter = linesNumberBeforePerimeterLine;
-        let spaceBetweenLetter = 0;
-    
-        let diamondPart;
-    
-        for (let i = 0; i < linesNumberBeforePerimeterLine; i++) {
-            if (i === 0) {
-                diamondPart = diamondPart
-                + this.getSpaces(spaceAroundLetter)
-                + this.ALPHABET.charAt(i)
-                + this.getSpaces(spaceAroundLetter);
-            } else {
-                diamondPart = diamondPart
-                + this.getSpaces(spaceAroundLetter) 
-                + this.ALPHABET.charAt(i) 
-                + this.getSpaces(spaceBetweenLetter) 
-                + this.ALPHABET.charAt(i) 
-                + this.getSpaces(spaceAroundLetter);
-            }
-            
-            if (i !== linesNumberBeforePerimeterLine - 1) {
-                diamondPart += '\n';
-            }
-            
-            spaceAroundLetter--;
-            spaceBetweenLetter += (spaceBetweenLetter == 0) ? 1 : 2;
+    public createQuarterDiamond(letter: string): string[] {
+        const ACharCode: number = 'A'.charCodeAt(0);
+        const rowsNumber: number = letter.charCodeAt(0) - ACharCode;
+        
+        const quarter: string[] = [];
+
+        for (let i = 0; i <= rowsNumber; i++) {
+            quarter.push(
+                  this.getSpaces(rowsNumber - i)
+                + String.fromCharCode(ACharCode + i)
+                + this.getSpaces(i)
+            );
         }
-    
-        return diamondPart;
+
+        return quarter;
     }
 
-    public createPerimeterLine(letter: string): string {
-        const letterPositionInAlphabet = this.getLetterPositionInAlphabet(letter);
-        const spaceBetweenLetter = -1 + (2 * letterPositionInAlphabet);
-    
-        return letter + this.getSpaces(spaceBetweenLetter) + letter;
+    public createHalfDiamond(quarter: string[]): string[] {
+        return quarter.map((row) => row + [...row].reverse().slice(1).join(''))
     }
 
-    public reverseDiamondPart(diamondPart: string): string {
-        return diamondPart.split("").reverse().join("");
+    public createFullDiamond(half: string[]): string[] {
+        return half.concat([...half].reverse().slice(1));
     }
     
-    public getLetterPositionInAlphabet(letter: string): number {
-        return this.ALPHABET.indexOf(letter);
-    }
-    
-    public getSpaces(spaceNumber: number): string {
-        const space: string = ' ';
-        return space.repeat(spaceNumber);
+    private getSpaces(spaceNumber: number): string {
+        return ' '.repeat(spaceNumber);
     } 
 }
