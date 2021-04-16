@@ -8,6 +8,7 @@
 - [FooBarQix](https://github.com/fabremx/Kata/tree/master/src/FooBarQix)
 - [Diamond](https://github.com/fabremx/Kata/tree/master/src/Diamond)
 - [Tennis](https://github.com/fabremx/Kata/tree/master/src/Tennis)
+- [Refund](https://github.com/fabremx/Kata/tree/master/src/Refund)
 
 ### Legacy code / Refactoring
 
