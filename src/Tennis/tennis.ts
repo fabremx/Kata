@@ -1,18 +1,9 @@
 class Player {
-  set: number = 0;
+  winGame: boolean = false;
   points: number = 0;
 
   winPoint() {
-    if (this.points === 15) {
-      this.points = 30;
-    } else if (this.points === 30) {
-      this.points = 40;
-    } else if (this.points === 40) {
-      this.points = 0;
-      this.set = 1;
-    } else {
-      this.points = 15;
-    }
+    this.points += 1;
   }
 }
 
@@ -20,9 +11,46 @@ export class Game {
   player1: Player = new Player();
   player2: Player = new Player();
 
-  score() {
-    return `
-Sets: ${this.player1.set}-${this.player2.set}
-Points: ${this.player1.points}-${this.player2.points}`;
+  scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+
+  deuceScore(points) {
+    if (points < 3) {
+      return `${this.scoreNames[points]}-All`
+    }
+
+    return 'Deuce'
+  }
+
+  tieScore(player1Points, player2Points) {
+    if (player1Points >= player2Points + 2) {
+      return 'Player1 win game'
+    }
+
+    if (player2Points >= player1Points + 2) {
+      return 'Player2 win game'
+    }
+
+    if (player1Points > player2Points) {
+      return 'Advantage player1'
+    }
+
+    if (player2Points > player1Points) {
+      return 'Advantage player2'
+    }
+  }
+
+  getScore() {
+    if (this.player1.points === this.player2.points) {
+      return this.deuceScore(this.player1.points);
+    }
+
+    if (this.player1.points > 3 || this.player2.points > 3) {
+      return this.tieScore(this.player1.points, this.player2.points);
+    }
+
+    const player1Score = this.scoreNames[this.player1.points];
+    const player2Score = this.scoreNames[this.player2.points];
+
+    return `${player1Score}-${player2Score}`;
   }
 }
