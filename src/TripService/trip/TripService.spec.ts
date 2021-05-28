@@ -1,7 +1,7 @@
 import TripService from './TripService';
 import User from '../user/User';
 import UserBuilder from '../user/UserBuilder';
-import Trip from './Trip';
+import Trip from './trip';
 import UserNotLoggedInException from '../exception/UserNotLoggedInException';
 import TripDAO from './TripDAO';
 

@@ -1,4 +1,4 @@
-class Player {
+export class Player {
   winGame: boolean = false;
   points: number = 0;
 
