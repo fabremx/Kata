@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["es6", "dom", "es2017"],
-    "target": "es5",
-    "downlevelIteration": true
+    "target": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*"],
 }

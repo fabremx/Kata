@@ -1,7 +1,7 @@
 import { Movie } from "./movie";
 
 export class Rental {
-  public constructor(readonly movie: Movie, readonly daysRented: number) {}
+  public constructor(readonly movie: Movie, readonly daysRented: number) { }
 
   determineFrequentPoint(): number {
     return this.hasRentalBonus() ? 2 : 1;

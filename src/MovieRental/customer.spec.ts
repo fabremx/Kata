@@ -19,9 +19,9 @@ describe("VideoStore", () => {
 
     expect(report).toBe(
       "Rental Record for Fred\n" +
-        "\tThe Cell\t9.0\n" +
-        "You owed 9.0\n" +
-        "You earned 2 frequent renter points \n"
+      "\tThe Cell\t9.0\n" +
+      "You owed 9.0\n" +
+      "You earned 2 frequent renter points \n"
     );
   });
 
@@ -37,10 +37,10 @@ describe("VideoStore", () => {
 
     expect(report).toBe(
       "Rental Record for Fred\n" +
-        "\tThe Cell\t9.0\n" +
-        "\tThe Tigger Movie\t9.0\n" +
-        "You owed 18.0\n" +
-        "You earned 4 frequent renter points \n"
+      "\tThe Cell\t9.0\n" +
+      "\tThe Tigger Movie\t9.0\n" +
+      "You owed 18.0\n" +
+      "You earned 4 frequent renter points \n"
     );
   });
 
@@ -56,10 +56,10 @@ describe("VideoStore", () => {
 
     expect(report).toBe(
       "Rental Record for Fred\n" +
-        "\tThe Tigger Movie\t1.5\n" +
-        "\tChildren 2\t3.0\n" +
-        "You owed 4.5\n" +
-        "You earned 2 frequent renter points \n"
+      "\tThe Tigger Movie\t1.5\n" +
+      "\tChildren 2\t3.0\n" +
+      "You owed 4.5\n" +
+      "You earned 2 frequent renter points \n"
     );
   });
 
@@ -81,11 +81,11 @@ describe("VideoStore", () => {
 
     expect(report).toBe(
       "Rental Record for Fred\n" +
-        "\tPlan 9 from Outer Space\t2.0\n" +
-        "\t8 1/2\t2.0\n" +
-        "\tEraserhead\t3.5\n" +
-        "You owed 7.5\n" +
-        "You earned 3 frequent renter points \n"
+      "\tPlan 9 from Outer Space\t2.0\n" +
+      "\t8 1/2\t2.0\n" +
+      "\tEraserhead\t3.5\n" +
+      "You owed 7.5\n" +
+      "You earned 3 frequent renter points \n"
     );
   });
 });

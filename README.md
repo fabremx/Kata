@@ -5,6 +5,7 @@
 ### TDD
 
 - [Leap Year](https://github.com/fabremx/Kata/tree/master/src/LeapYear)
+- [FizzBuzz](https://github.com/fabremx/Kata/tree/master/src/FizzBuzz)
 - [FooBarQix](https://github.com/fabremx/Kata/tree/master/src/FooBarQix)
 - [Diamond](https://github.com/fabremx/Kata/tree/master/src/Diamond)
 - [Tennis](https://github.com/fabremx/Kata/tree/master/src/Tennis)

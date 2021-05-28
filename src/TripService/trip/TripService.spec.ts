@@ -1,9 +1,9 @@
 import TripService from './TripService';
 import User from '../user/User';
 import UserBuilder from '../user/UserBuilder';
-import Trip from './trip';
 import UserNotLoggedInException from '../exception/UserNotLoggedInException';
 import TripDAO from './TripDAO';
+import Trip from './Trip';
 
 describe('TripService - getTripsByUser', () => {
     const NOT_LOGGED_USER = null;
@@ -13,14 +13,14 @@ describe('TripService - getTripsByUser', () => {
     const ANOTHER_USER = new User();
 
     const TO_BRAZIL = new Trip();
-    const TO_LONDON =  new Trip();
+    const TO_LONDON = new Trip();
 
     let tripService = new TripService();
 
-    it('should throw exception when user is not logged', () => {       
+    it('should throw exception when user is not logged', () => {
         // When
         try {
-            tripService.getTripsByUser(UNUSED_USER, NOT_LOGGED_USER);
+            tripService.getTripsByUser((UNUSED_USER as unknown) as User, (NOT_LOGGED_USER as unknown) as User);
         }
         catch (error) {
             // Then
@@ -32,12 +32,12 @@ describe('TripService - getTripsByUser', () => {
     it('should return any trips when users are not friends', () => {
         // Given
         const friend = UserBuilder.aUser()
-                            .friendsWith(ANOTHER_USER)
-                            .withTrips(TO_BRAZIL)
-                            .build();
+            .friendsWith(ANOTHER_USER)
+            .withTrips(TO_BRAZIL)
+            .build();
 
         // When
-        const friendTrips: Trip[]  = tripService.getTripsByUser(friend, LOGGED_IN_USER)
+        const friendTrips: Trip[] = tripService.getTripsByUser(friend, LOGGED_IN_USER)
 
         // Then
         expect(friendTrips).toEqual([]);
@@ -46,14 +46,14 @@ describe('TripService - getTripsByUser', () => {
     it('should return friend trips when users are friends', () => {
         // Given
         const friend = UserBuilder.aUser()
-                            .friendsWith(ANOTHER_USER, LOGGED_IN_USER)
-                            .withTrips(TO_BRAZIL, TO_LONDON)
-                            .build();
+            .friendsWith(ANOTHER_USER, LOGGED_IN_USER)
+            .withTrips(TO_BRAZIL, TO_LONDON)
+            .build();
 
         TripDAO.findTripsByUser = jest.fn().mockReturnValue(friend.getTrips());
 
         // When
-        const friendTrips: Trip[]  = tripService.getTripsByUser(friend, LOGGED_IN_USER)
+        const friendTrips: Trip[] = tripService.getTripsByUser(friend, LOGGED_IN_USER)
 
         // Then
         const expectedFriendTrips = friend.getTrips();
