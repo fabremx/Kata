@@ -13,7 +13,7 @@ export class Game {
 
   scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
 
-  deuceScore(points) {
+  deuceScore(points: number) {
     if (points < 3) {
       return `${this.scoreNames[points]}-All`
     }
@@ -21,22 +21,20 @@ export class Game {
     return 'Deuce'
   }
 
-  tieScore(player1Points, player2Points) {
-    if (player1Points >= player2Points + 2) {
-      return 'Player1 win game'
-    }
-
-    if (player2Points >= player1Points + 2) {
-      return 'Player2 win game'
-    }
-
+  tieScore(player1Points: number, player2Points: number) {
     if (player1Points > player2Points) {
       return 'Advantage player1'
     }
 
-    if (player2Points > player1Points) {
-      return 'Advantage player2'
+    return 'Advantage player2'
+  }
+
+  win(player1Points: number, player2Points: number) {
+    if (player1Points > player2Points) {
+      return 'Player1 win game'
     }
+
+    return 'Player2 win game'
   }
 
   getScore() {
@@ -45,6 +43,10 @@ export class Game {
     }
 
     if (this.player1.points > 3 || this.player2.points > 3) {
+      if (Math.abs(this.player1.points - this.player2.points) >= 2) {
+        return this.win(this.player1.points, this.player2.points);
+      }
+
       return this.tieScore(this.player1.points, this.player2.points);
     }
 
