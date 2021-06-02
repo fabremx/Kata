@@ -3,7 +3,7 @@ import User from '../user/User';
 import UserBuilder from '../user/UserBuilder';
 import UserNotLoggedInException from '../exception/UserNotLoggedInException';
 import TripDAO from './TripDAO';
-import Trip from './Trip';
+import Trip from './trip';
 
 describe('TripService - getTripsByUser', () => {
     const NOT_LOGGED_USER = null;

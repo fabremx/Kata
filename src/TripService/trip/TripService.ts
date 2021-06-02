@@ -1,6 +1,6 @@
 import UserNotLoggedInException from "../exception/UserNotLoggedInException";
 import User from "../user/User";
-import Trip from "./Trip";
+import Trip from "./trip";
 import TripDAO from "./TripDAO";
 
 export default class TripService {
