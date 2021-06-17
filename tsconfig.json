@@ -1,9 +1,16 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "baseUrl": "./src",
-    "lib": ["es6", "dom", "es2017"],
+    "lib": [
+      "es6",
+      "dom",
+      "es2017"
+    ],
     "target": "es5",
     "downlevelIteration": true
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }
